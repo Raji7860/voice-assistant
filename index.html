@@ -1,122 +1,109 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تبدیل متن به صوت</title>
-  <style>
-    /* body: پس‌زمینه صفحه (گرادیانت از زرد به نارنجی)
-       در این مثال: #FF0000 (قرمز) به #0000FF (آبی) */
-    body {
-      font-family: Tahoma, sans-serif;
-      direction: rtl;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #FF0000, #0000FF);
-      color: #fff;
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AICollection</title>
+    
+    <style>
+      /* استایل‌دهی برای بدنه صفحه */
+body {
+    font-family: 'Roboto', sans-serif; /* استفاده از فونت Roboto */
+    background: linear-gradient(to bottom, #6a11cb, #2575fc); /* پس‌زمینه ترکیب عمودی از دو رنگ */
+    color: white; /* رنگ متن سفید */
+    margin: 0;
+    padding: 0;
+    text-align: center; /* وسط چین کردن متن‌ها */
+}
 
-    /* header: بخش عنوان بالا - پس‌زمینه: rgba(0,0,0,0.2) */
-    header {
-      padding: 50px 50px;
-      background: rgba(0, 0, 0, 0.2);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
 
-    /* container: ظرف کلی محتوا */
-    .container {
-      padding: 20px;
-    }
+        /* استایل هدر */
+        header {
+            padding: 30px 0;
+            background-color: rgba(0, 0, 0, 0.6); /* رنگ پس‌زمینه نیمه شفاف */
+            border-bottom: 2px solid #fff; /* خط پایین */
+        }
 
-    /* description: توضیحات پروژه - پس‌زمینه: rgba(255,255,255,0.2) */
-    .description {
-      background: rgba(255, 255, 255, 0.2);
-      padding: 20px;
-      border-radius: 10px;
-      margin: 20px auto;
-      max-width: 800px;
-      line-height: 1.6;
-    }
-    /* تنظیم اندازه و ضخامت متن در توضیحات */
-    .description p {
-      font-size: 2em;   /* بزرگتر کردن متن */
-      font-weight: bold;  /* ضخیم کردن متن */
-    }
+        /* استایل برای عنوان اصلی سایت */
+        header h1 {
+            font-family: 'Poppins', sans-serif; /* استفاده از فونت Poppins برای عنوان */
+            font-size: 40px;
+            margin: 0;
+        }
 
-    /* download-section: دکمه دانلود اپلیکیشن
-       رنگ دکمه اصلی: #e65c00
-       رنگ هنگام hover: #FFCC00 */
-    .download-section {
-      margin: 20px auto;
-      padding: 20px;
-    }
-    .download-section a {
-      display: inline-block;
-      text-decoration: none;
-      background: #e65c00;
-      padding: 50px 20px;
-      border-radius: 5px;
-      color: #fff;
-      font-size: 3em;
-      transition: background 0.3s ease;
-    }
-    .download-section a:hover {
-      background: #FFCC00;
-    }
+        /* استایل برای توضیحات پایین عنوان */
+        header p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
 
-    /* video-section: بخش ویدیو (به جای عکس) */
-    .video-section {
-      margin: 20px auto;
-      max-width: 350px;
-    }
-    .video-section video {
-      width: 100%;
-      border-radius: 10px;
-    }
+        /* استایل برای بخش اصلی که کارت‌های هوش مصنوعی رو شامل میشه */
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap; /* برای ریسپانسیو شدن */
+            padding: 30px;
+        }
 
-    /* footer: اطلاعات طراح - پس‌زمینه: rgba(0,0,0,0.2) */
-    footer {
-      background: rgba(0, 0, 0, 0.2);
-      padding: 10px;
-      font-size: 0.9em;
-    }
-  </style>
+        /* استایل برای هر کارت هوش مصنوعی */
+        .ai-card {
+            background-color: rgba(255, 255, 255, 0.1); /* پس‌زمینه نیمه شفاف برای کارت‌ها */
+            border-radius: 15px;
+            padding: 20px;
+            width: 250px; /* عرض هر کارت */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* سایه برای کارت */
+            transition: transform 0.3s ease; /* انیمیشن برای تغییرات */
+        }
+
+        /* افکت برای بزرگ شدن کارت هنگام هاور */
+        .ai-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* استایل برای دکمه‌ها */
+        .ai-btn {
+            background-color: #28a745; /* رنگ پس‌زمینه دکمه */
+            color: white; /* رنگ متن دکمه */
+            padding: 15px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            text-decoration: none;
+            display: block;
+            width: 100%; /* دکمه به عرض کامل کارت کشیده می‌شود */
+        }
+
+        /* تغییر رنگ دکمه هنگام هاور */
+        .ai-btn:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
 <body>
-  <!-- header: عنوان اصلی -->
-  <header>
-    <h1>با اپلیکیشن طلایی، متن را به صدای دلنشین تبدیل کنید!</h1>
-  </header>
+    <header>
+        <h1>مجموعه هوش‌های مصنوعی</h1> <!-- عنوان سایت -->
+        <p>دسترسی سریع به انواع هوش‌های مصنوعی مختلف</p> <!-- توضیحات کوتاه -->
+    </header>
 
-  <!-- container: شامل توضیحات، دانلود و ویدیو -->
-  <div class="container">
-    <!-- description: توضیحات پروژه -->
-    <div class="description">
-      <p>هر متنی را به صوت تبدیل کنید و با تنظیمات متنوع، نتیجه دلخواه را دریافت نمایید.</p>
-      <p>تنظیمات شامل زبان، سرعت و شدت صدا است.</p>
+    <!-- بخش اصلی که شامل دکمه‌های هوش مصنوعی هست -->
+    <div class="container">
+        <!-- دکمه هوش مصنوعی 1 -->
+        <div class="ai-card">
+            <button class="ai-btn" onclick="window.location.href='https://openai.com'">chat gpt</button>
+        </div>
+
+        <!-- دکمه هوش مصنوعی 2 -->
+        <div class="ai-card">
+            <button class="ai-btn" onclick="window.location.href='https://deepmind.com'">DeepMind</button>
+        </div>
+
+        <!-- دکمه هوش مصنوعی 3 -->
+        <div class="ai-card">
+            <button class="ai-btn" onclick="window.location.href='https://compilat.io'">Compilat</button>
+        </div>
     </div>
-
-   <!-- download-section: دکمه دانلود اپلیکیشن -->
-<div class="download-section">
-  <a href="http://www.vira-academy.ir/" target="_blank">دانلود اپلیکیشن</a>
-</div>
-
-    <!-- video-section: نمایش ویدیو -->
-    <div class="video-section">
-      <video controls>
-        <source src="Video_250212014346.mp4" type="video/mp4">
-        مرورگر شما از تگ ویدیو پشتیبانی نمی‌کند.
-      </video>
-    </div>
-  </div>
-
-  <!-- footer: اطلاعات طراح -->
-  <footer>
-    <p>طراح: محمدرضا راجی</p>
-  </footer>
 </body>
 </html>
