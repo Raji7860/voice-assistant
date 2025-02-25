@@ -3,47 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="برنامه تبدیل متن به صوت با امکان تعیین تکرار و تأخیر">
-  <meta name="keywords" content="متن به صوت, دستیار صوتی, محمدرضا راجی">
-  <title>دستیار صوتی</title>
+  <title>تبدیل متن به صوت</title>
   <style>
+    /* body: پس‌زمینه صفحه (گرادیانت از زرد به نارنجی)
+       در این مثال: #FF0000 (قرمز) به #0000FF (آبی) */
     body {
       font-family: Tahoma, sans-serif;
       direction: rtl;
-      text-align: center;
-      background-color: #f5f5f5;
       margin: 0;
       padding: 0;
-    }
-    header, footer {
-      background-color: #333;
+      background: linear-gradient(135deg, #FF0000, #0000FF);
       color: #fff;
-      padding: 10px 0;
+      text-align: center;
     }
-    .content {
+
+    /* header: بخش عنوان بالا - پس‌زمینه: rgba(0,0,0,0.2) */
+    header {
+      padding: 50px 50px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    /* container: ظرف کلی محتوا */
+    .container {
       padding: 20px;
     }
-    img {
-      max-width: 100%;
-      height: auto;
-      margin: 20px 0;
+
+    /* description: توضیحات پروژه - پس‌زمینه: rgba(255,255,255,0.2) */
+    .description {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 800px;
+      line-height: 1.6;
+    }
+    /* تنظیم اندازه و ضخامت متن در توضیحات */
+    .description p {
+      font-size: 2em;   /* بزرگتر کردن متن */
+      font-weight: bold;  /* ضخیم کردن متن */
+    }
+
+    /* download-section: دکمه دانلود اپلیکیشن
+       رنگ دکمه اصلی: #e65c00
+       رنگ هنگام hover: #FFCC00 */
+    .download-section {
+      margin: 20px auto;
+      padding: 20px;
+    }
+    .download-section a {
+      display: inline-block;
+      text-decoration: none;
+      background: #e65c00;
+      padding: 50px 20px;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 3em;
+      transition: background 0.3s ease;
+    }
+    .download-section a:hover {
+      background: #FFCC00;
+    }
+
+    /* video-section: بخش ویدیو (به جای عکس) */
+    .video-section {
+      margin: 20px auto;
+      max-width: 350px;
+    }
+    .video-section video {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* footer: اطلاعات طراح - پس‌زمینه: rgba(0,0,0,0.2) */
+    footer {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
+  <!-- header: عنوان اصلی -->
   <header>
-    <h1>دستیار صوتی</h1>
+    <h1>با اپلیکیشن طلایی، متن را به صدای دلنشین تبدیل کنید!</h1>
   </header>
 
-  <div class="content">
+  <!-- container: شامل توضیحات، دانلود و ویدیو -->
+  <div class="container">
+    <!-- description: توضیحات پروژه -->
+    <div class="description">
+      <p>هر متنی را به صوت تبدیل کنید و با تنظیمات متنوع، نتیجه دلخواه را دریافت نمایید.</p>
+      <p>تنظیمات شامل زبان، سرعت و شدت صدا است.</p>
+    </div>
 
-    <img src="Latest-free-artificial-intelligence-for-image-making-4.jpg" alt="تصویر برنامه">
-    
-    <p>
-      این برنامه امکان تبدیل متن به صوت را فراهم می‌کند. به کمک این برنامه می‌توانید برای هر کلمه تکرار و تأخیر تعیین کنید. همچنین هر متنی، چه به زبان فارسی و چه به زبان انگلیسی، به صورت صوتی پخش می‌شود.
-    </p>
+   <!-- download-section: دکمه دانلود اپلیکیشن -->
+<div class="download-section">
+  <a href="http://www.vira-academy.ir/" target="_blank">دانلود اپلیکیشن</a>
+</div>
+
+    <!-- video-section: نمایش ویدیو -->
+    <div class="video-section">
+      <video controls>
+        <source src="Video_250212014346.mp4" type="video/mp4">
+        مرورگر شما از تگ ویدیو پشتیبانی نمی‌کند.
+      </video>
+    </div>
   </div>
 
+  <!-- footer: اطلاعات طراح -->
   <footer>
     <p>طراح: محمدرضا راجی</p>
   </footer>
